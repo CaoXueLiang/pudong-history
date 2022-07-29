@@ -11,7 +11,28 @@
         >，是在元代诗人杨禹的《山居心语》中：
       </div>
     </div>
-    <div class="ciImageContain margin_top_30"></div>
+    <div class="ciImageContain margin_top_30">
+      <img
+        class="image_rightone"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/19/%E6%B8%85%E6%99%B0-%E5%8F%B3%E8%BE%B94.png-hd"
+        alt=""
+      />
+      <img
+        class="image_right2"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/19/%E6%B8%85%E6%99%B0-%E5%8F%B3%E8%BE%B93.png-hd"
+        alt=""
+      />
+      <img
+        class="image_right3"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/19/%E6%B8%85%E6%99%B0-%E5%8F%B3%E8%BE%B92.png-hd"
+        alt=""
+      />
+      <img
+        class="image_right4"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/19/%E6%B8%85%E6%99%B0-%E5%8F%B3%E8%BE%B91.png-hd"
+        alt=""
+      />
+    </div>
     <div class="textContain margin_top_60">
       <div class="normalLabel">
         不过这里的<span class="hightLabel">“ 浦东 ”</span>，其实是“上海浦”
@@ -193,8 +214,40 @@
         所谓的“经济”即实学，崇尚经世致用，是与空谈性命之学相对立的概念。他关心边防军事、河流疏浚、盐务、气候、渔业······
       </div>
     </div>
+    <div class="zhiliImageContain margin_top_40">
+      <img
+        class="width_100"
+        v-if="currentSelectIndex === 0"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/22/%E8%AF%AD%E5%BD%95_1.png-hd"
+        alt=""
+      />
+      <img
+        class="width_100"
+        v-if="currentSelectIndex === 1"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/22/%E8%AF%AD%E5%BD%95_2.png-hd"
+        alt=""
+      />
+      <img
+        class="width_100"
+        v-if="currentSelectIndex === 2"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/22/%E8%AF%AD%E5%BD%95_3.png-hd"
+        alt=""
+      />
+      <img
+        @click="switchZhiliImage"
+        class="switchImage"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E8%AF%AD%E5%BD%95%E5%88%87%E6%8D%A2%E6%8C%89%E9%92%AE.png-hd"
+        alt=""
+      />
+    </div>
+    <div class="textContain margin_top_30">
+      <div class="normalLabel">
+        陆深的务实精神，和600多年后人们在开发浦东过程中表现出的“想做事”精神，形成了微妙的勾连和回响。
+      </div>
+    </div>
     <div class="padding_left_right_30 margin_top_30 margin_bottom_60">
       <img
+        @click="gotoIndustryView"
         class="width_100"
         src="http://cdn1.zhizhucms.com/image/4586934/2020/8/31/%E4%B8%8B%E4%B8%80%E7%AB%A0-1.png-hd"
         alt=""
@@ -213,6 +266,7 @@ export default {
         slidesPerView: "auto",
         spaceBetween: 40,
       },
+      currentSelectIndex: 0,
       calligraphyArray: [
         {
           image:
@@ -245,6 +299,12 @@ export default {
         path: "/CalligraphyDetail",
         query: item,
       });
+    },
+    switchZhiliImage() {
+      this.currentSelectIndex = (this.currentSelectIndex + 1) % 3;
+    },
+    gotoIndustryView() {
+      this.$router.push("/InheritanceView");
     },
   },
 };
@@ -283,6 +343,48 @@ export default {
   height: 248.5px;
   background-size: cover;
   background-image: url("http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E5%B1%B1%E5%B1%85%E5%BF%83%E8%AF%AD.png-hd");
+  .image_rightone {
+    width: 20px !important;
+    height: 190.5px;
+    margin-top: 29px;
+    margin-left: 55px;
+  }
+  .image_right2 {
+    width: 20px !important;
+    height: 190.5px;
+    margin-top: 29px;
+    margin-left: 8px;
+  }
+  .image_right3 {
+    width: 20px !important;
+    height: 190.5px;
+    margin-top: 29px;
+    margin-left: 8px;
+  }
+  .image_right4 {
+    width: 20px !important;
+    height: 190.5px;
+    margin-top: 29px;
+    margin-left: 8px;
+  }
+}
+
+.switchImage {
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  right: 27px;
+  top: 0px;
+  animation: 0.8s linear 1s infinite roteAnimation;
+}
+
+@keyframes roteAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }
 
 .textContain {
@@ -290,15 +392,15 @@ export default {
   padding-right: 10px;
 
   .normalLabel {
-    font-size: 15px;
+    font-size: 16px;
     color: #222;
-    line-height: 25px;
+    line-height: 26px;
   }
   .hightLabel {
-    font-size: 15px;
+    font-size: 16px;
     color: #000;
     font-weight: 600;
-    line-height: 25px;
+    line-height: 26px;
   }
 }
 
@@ -504,5 +606,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: end;
+}
+
+.zhiliImageContain {
+  padding-left: 27px;
+  padding-right: 27px;
+  position: relative;
 }
 </style>
