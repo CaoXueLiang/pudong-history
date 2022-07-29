@@ -146,6 +146,7 @@ export default {
   data() {
     return {
       swiperOption: {
+        freeMode: true,
         slidesPerView: "auto",
         spaceBetween: 40,
       },
