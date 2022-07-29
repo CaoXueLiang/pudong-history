@@ -5,6 +5,7 @@ const EconomyView = () => import("../views/EconomyView.vue");
 const IndustryView = () => import("../views/IndustryView.vue");
 const InheritanceView = () => import("../views/InheritanceView.vue");
 const TimeLine = () => import("../views/TimeLine.vue");
+const CalligraphyDetail = () => import("../views/CalligraphyDetail.vue");
 
 Vue.use(VueRouter);
 
@@ -29,11 +30,16 @@ const routes = [
     name: "TimeLine",
     component: TimeLine,
   },
+  {
+    path: "/CalligraphyDetail",
+    name: "CalligraphyDetail",
+    component: CalligraphyDetail,
+  },
 ];
 
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+  // mode: "history",
+  // base: process.env.BASE_URL,
   routes,
 });
 

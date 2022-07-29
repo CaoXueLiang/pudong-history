@@ -118,24 +118,87 @@
         陆深，年少时与徐帧卿相互切磋，故文章有名。工于书法，仿李琵、赵孟耶。然为人颇傲慢，因此，人们对他稍有非议。
       </div>
     </div>
-    <div class="normalImageContain margin_top_60">
+    <div class="shufaDivContain margin_top_60">
+      <div class="normalImageContain">
+        <img
+          class="shufaImage"
+          src="http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E9%99%86%E6%B7%B1%E4%B9%A6%E6%B3%95%E5%A2%A8%E8%BF%B9%E9%80%89%E7%B2%B9.png-hd"
+          alt=""
+        />
+      </div>
+      <div class="swiperContain margin_top_60">
+        <swiper ref="mySwiper" class="swiper" :options="swiperOption">
+          <swiper-slide
+            v-for="(item, index) in calligraphyArray"
+            :key="index + 'card'"
+          >
+            <div class="image1">
+              <img
+                class="image1"
+                :src="item.image"
+                alt=""
+                @click="checkFufaDetail(item)"
+              />
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+      <div class="padding_10_flex_right">
+        <img
+          class="qiaoyiqiaoImage"
+          src="http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E6%95%B2%E4%B8%80%E6%95%B2%E5%AD%97%E8%B4%B4.png-hd"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="textContain margin_top_30">
+      <div class="normalLabel">
+        陆深曾祖父陆德衡以入赘身份迁入浦东，因异乡人被排挤，最终落户于当时荒芜多水患的黄浦江沿江地区。陆氏后人陆续在此聚居，该地区因此得名“陆家嘴”。
+      </div>
+    </div>
+    <div class="textContain margin_top_30">
+      <div class="normalLabel">
+        陆深回乡丁忧期间，建了一座园林，叫“后乐园”，取意于范仲淹名句“先天下之忧而忧，后天下之乐而乐”。不论是民国期间的“花园路”，还是现在，云集了陆家嘴“三件套”等超高建筑的花园石桥路，都和这座“后乐园”有关。
+      </div>
+    </div>
+    <img
+      class="width_100 margin_top_-100"
+      src="http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E8%8A%B1%E5%9B%AD%E8%B7%AF.png-hd"
+      alt=""
+    />
+    <div class="width_100 textContain margin_top_30">
+      <div class="normalLabel padding_10">对于家乡，陆深曾这样这样评价：</div>
+    </div>
+    <div class="padding_left_right_40 margin_top_30">
       <img
-        class="shufaImage"
-        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E9%99%86%E6%B7%B1%E4%B9%A6%E6%B3%95%E5%A2%A8%E8%BF%B9%E9%80%89%E7%B2%B9.png-hd"
+        class="commentImage"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E8%AF%84%E4%BB%B7.png-hd"
+        alt=""
+      />
+      <img
+        class="commentRedImage"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E8%AF%84%E4%BB%B7%E7%BA%A2%E5%AD%97.png-hd"
         alt=""
       />
     </div>
-    <div class="swiperContain">
-      <swiper ref="mySwiper" class="swiper" :options="swiperOption">
-        <swiper-slide
-          v-for="(item, index) in calligraphyArray"
-          :key="index + 'card'"
-        >
-          <div class="image1">
-            <img class="image1" :src="item.image" alt="" />
-          </div>
-        </swiper-slide>
-      </swiper>
+    <div class="textContain margin_top_30">
+      <div class="normalLabel">
+        而陆深自己也是“淳如”而实在的人。晚清的《上海县竹枝词》曾将陆深评价为
+        <span class="hightLabel">“ 今古兼通 ”</span
+        >，并引述他的话说，“士君子有志用世，非兼通今古，何得言经济？”
+      </div>
+    </div>
+    <div class="textContain margin_top_30">
+      <div class="normalLabel">
+        所谓的“经济”即实学，崇尚经世致用，是与空谈性命之学相对立的概念。他关心边防军事、河流疏浚、盐务、气候、渔业······
+      </div>
+    </div>
+    <div class="padding_left_right_30 margin_top_30 margin_bottom_60">
+      <img
+        class="width_100"
+        src="http://cdn1.zhizhucms.com/image/4586934/2020/8/31/%E4%B8%8B%E4%B8%80%E7%AB%A0-1.png-hd"
+        alt=""
+      />
     </div>
   </div>
 </template>
@@ -177,6 +240,12 @@ export default {
     goToTimeLine() {
       this.$router.push("/TimeLine");
     },
+    checkFufaDetail(item) {
+      this.$router.push({
+        path: "/CalligraphyDetail",
+        query: item,
+      });
+    },
   },
 };
 </script>
@@ -185,10 +254,24 @@ export default {
 .container_EconomyView {
   display: flex;
   width: 100vw;
+  overflow-x: hidden;
   flex-direction: column;
   align-items: center;
   padding: 0px;
   margin: 0px;
+}
+
+.commentImage {
+  width: 211.5px;
+  height: 353px;
+}
+
+.commentRedImage {
+  position: absolute;
+  width: 70.5px;
+  height: 293.5px;
+  right: 68px;
+  top: 29px;
 }
 
 .economyViewImage {
@@ -234,6 +317,23 @@ export default {
   position: relative;
   padding-left: 40px;
   padding-right: 40px;
+}
+
+.padding_left_right_30 {
+  position: relative;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.qiaoyiqiaoImage {
+  width: 108px;
+  height: 60px;
+  margin-right: 20px;
+  animation-name: slidein;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-direction: reverse;
 }
 
 .shouImage {
@@ -329,6 +429,10 @@ export default {
   width: 100%;
 }
 
+.margin_top_-100 {
+  margin-top: -100px;
+}
+
 .margin_top_60 {
   margin-top: 60px;
 }
@@ -353,6 +457,10 @@ export default {
   margin-top: 30px;
 }
 
+.margin_bottom_60 {
+  margin-bottom: 60px;
+}
+
 .swiperContain {
   width: 100%;
 }
@@ -363,5 +471,38 @@ export default {
 
 ::v-deep .swiper-slide {
   width: auto !important;
+}
+
+::v-deep .swiper {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.shufaDivContain {
+  width: 100%;
+  background-image: url("http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E4%B9%A6%E6%B3%95%E5%BA%95%E7%BA%B9.png-hd");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.huayuanluDivContain {
+  width: 100%;
+  height: 700px;
+  background-image: url("http://cdn1.zhizhucms.com/image/4586934/2020/8/20/%E8%8A%B1%E5%9B%AD%E8%B7%AF.png-hd");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.padding_10_flex_right {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 </style>

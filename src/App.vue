@@ -6,6 +6,7 @@
 
 <style lang="scss">
 body {
+  overflow-x: hidden;
   margin: 0px;
   padding: 0px;
 }
